@@ -1,8 +1,8 @@
 site_name: Samuel_mkdocs
 
 nav:
-    - Practica LAMP en ubuntu: LAMP_ubuntu.md
-    - Practica LAMP en RHEL: LAMP_rhel.md
+    - Practica LAMP en RHEL: LAMP_RHEL.md
+    - Practica LAMP en UBUNTU: LAMP_UBUNTU.md
 
 
 theme: 

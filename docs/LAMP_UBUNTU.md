@@ -6,7 +6,7 @@ El proceso se hará de forma automatizada mediante 2 scripts: uno de ellos será
 
 Primeramente empezaré configurando dentro de la una carpeta llamada *Scripts*, 2 archivos **.sh** el primero será donde se realizará lo que concierne a la instalación de la pila **LAMP** (install_lamp.sh) y el segundo para el agregado de ciertas *tools* (installtools.sh).
 
-![]({{ site.url }}/images/scripts.png)
+![](/images/scripts.png)
 
 ### 1.1 Configuraciones iniciales:
 
@@ -52,7 +52,7 @@ apt install php libapache2-mod-php php-mysql -y
 
 En esta parte de aquí bajo la carpeta *conf*, podemos tener creado un archivo **000-default.conf** donde tengamos implementada la configuración del VirtualHost del servidor web:
 
-![]({{ site.url }}/images/conf.png)
+![](/images/conf.png)
 
 y en nuestro script de automatización podemos emplear el comando **cp** para copiar hacia la ruta donde apache tiene los servidores webs **no activos**, automatizando de este modo la tarea:
 
@@ -93,9 +93,9 @@ echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selecti
  
  Para no tener que estar introduciendo nuestro usuario y contraseña durante la propia instalación, podemos meter dentro de nuestra carpeta de *Scripts* un archivo **.env** (que permanece oculto), donde asignemos las variables para el **usuario** y **contraseña**, y las **credenciales** para acceder **via web** al phpmyadmin:
 
-![]({{ site.url }}/images/.env.png)
+![](/images/.env.png)
 
-![]({{ site.url }}/images/credenciales.png)
+![](/images/credenciales.png)
 
 
 y desde el propio script llamaremos a las variables usando la herramienta **debconf-set-selections** para automatizar la respuesta de introducción y confirmación de la contraseña:
@@ -113,8 +113,6 @@ Una vez hecha la configuración previa se puede pasar con la instalación ya aut
 ```
 apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl
 ```
-
-
 
 ### 3.4 Configuración de acceso automatizado de usuario a las bases de datos
 
@@ -187,7 +185,7 @@ Mediante el siguiente comando se realiza la creación del archivo **.htpasswd** 
 
 Podemos meter dichas variables en el archivo **.env** del directorio de *Scripts*
 
-![]({{ site.url }}/images/statsvar.png)
+![](/images/statsvar.png)
 
 el parámetro **-b** permite utilizar el comando en un script de bash
 
@@ -196,13 +194,13 @@ htpasswd -bc /etc/apache2/.htpasswd $STATS_USERNAME $STATS_PASSWORD`
 ```
 Seguidamente, el directorio *.conf* podemos  crear un segundo archivo de configuración para el stats
 
-![]({{ site.url }}/images/confstats.png)
+![](/images/confstats.png)
 
 Y mediante este comando de forma automatizada podemos estar copiando con un nombre distinto nuestro archivo de configuración con el nombre **000-default.conf** para que lo detecte apache con el nombre por defecto que tiene ese archivo:
 
 Internamente el archivo está puesto de esta forma:
 
-![]({{ site.url }}/images/vhost_stast.png)
+![](/images/vhost_stast.png)
 
 ```
 cp ../conf/000-default-stats.conf /etc/apache2/sites-available/000-default.conf
