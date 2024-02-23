@@ -1,0 +1,869 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../LAMP_ubuntu/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Practica LAMP en RHEL - Samuel_mkdocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka:300,300i,400,400i,700,700i%7CFredoka:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fredoka";--md-code-font:"Fredoka"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#l-a-m-p-s-t-a-c-k-en-ubuntu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Samuel_mkdocs" class="md-header__button md-logo" aria-label="Samuel_mkdocs" data-md-component="logo">
+      
+  <img src="../images/S.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Samuel_mkdocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practica LAMP en RHEL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Samuel_mkdocs" class="md-nav__button md-logo" aria-label="Samuel_mkdocs" data-md-component="logo">
+      
+  <img src="../images/S.png" alt="logo">
+
+    </a>
+    Samuel_mkdocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAMP_ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practica LAMP en ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Practica LAMP en RHEL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Practica LAMP en RHEL
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#l-a-m-p-s-t-a-c-k-en-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      L A M P S T A C K en UBUNTU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inicial:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Inicial:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-configuraciones-iniciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Configuraciones iniciales:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Configuraciones iniciales:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mostrar-comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mostrar comandos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-de-paquetes-y-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actualización de paquetes y repositorios:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-implantacion-de-la-pila" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Implantación de la pila:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Implantación de la pila:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-instalacion-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Instalación de APACHE:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-instalacion-de-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Instalación de MySQL:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-instalacion-de-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Instalación de PHP:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-archivo-de-configuracion-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Archivo de configuración de apache:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-modificacion-de-grupo-y-propietario" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Modificación de grupo y propietario:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuracion-de-las-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configuración de las tools:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Configuración de las tools:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-como-podriamos-automatizar-la-instalacion-de-phpmyadmin-desde-un-script-de-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 ¿Cómo podríamos automatizar la instalación de phpmyadmin desde un script de Bash?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-configuracion-automatizada-de-las-credenciales-de-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Configuración automatizada de las credenciales de phpmyadmin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-instalacion-de-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Instalación de phpmyadmin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-configuracion-de-acceso-automatizado-de-usuario-a-las-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Configuración de acceso automatizado de usuario a las bases de datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-instalacion-de-adminer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Instalación de ADMINER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-instalacion-y-configuracion-de-goacess" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Instalación y configuración de GoAcess
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-autenticacion-de-goacess" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Autenticación de GoAcess
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#l-a-m-p-s-t-a-c-k-en-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      L A M P S T A C K en UBUNTU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inicial:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Inicial:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-configuraciones-iniciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Configuraciones iniciales:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Configuraciones iniciales:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mostrar-comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mostrar comandos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-de-paquetes-y-repositorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actualización de paquetes y repositorios:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-implantacion-de-la-pila" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Implantación de la pila:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Implantación de la pila:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-instalacion-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Instalación de APACHE:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-instalacion-de-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Instalación de MySQL:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-instalacion-de-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Instalación de PHP:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-archivo-de-configuracion-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Archivo de configuración de apache:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-modificacion-de-grupo-y-propietario" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Modificación de grupo y propietario:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuracion-de-las-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configuración de las tools:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Configuración de las tools:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-como-podriamos-automatizar-la-instalacion-de-phpmyadmin-desde-un-script-de-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 ¿Cómo podríamos automatizar la instalación de phpmyadmin desde un script de Bash?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-configuracion-automatizada-de-las-credenciales-de-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Configuración automatizada de las credenciales de phpmyadmin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-instalacion-de-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Instalación de phpmyadmin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-configuracion-de-acceso-automatizado-de-usuario-a-las-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Configuración de acceso automatizado de usuario a las bases de datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-instalacion-de-adminer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Instalación de ADMINER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-instalacion-y-configuracion-de-goacess" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Instalación y configuración de GoAcess
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-autenticacion-de-goacess" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Autenticación de GoAcess
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Practica LAMP en RHEL</h1>
+
+<h3 id="l-a-m-p-s-t-a-c-k-en-ubuntu">L A M P S T A C K en UBUNTU</h3>
+<p>Para esta práctica hay que realizar principalmente la instalación de la pila <strong>LAMP</strong> (Linux, Apache, MySQL, PHP.)  <br />
+El proceso se hará de forma automatizada mediante 2 scripts: uno de ellos será utilizado para la instalación de la pila <strong>LAMP</strong> y el otro para la implantación de ciertas herramientas webs como phpmyadmin y adicionales.</p>
+<h2 id="1-inicial">1. Inicial:</h2>
+<p>Primeramente empezaré configurando dentro de la una carpeta llamada <em>Scripts</em>, 2 archivos <strong>.sh</strong> el primero será donde se realizará lo que concierne a la instalación de la pila <strong>LAMP</strong> (install_lamp.sh) y el segundo para el agregado de ciertas <em>tools</em> (installtools.sh).</p>
+<p><img alt="" src="{{ site.url }}/images/scripts.png" /></p>
+<h3 id="11-configuraciones-iniciales">1.1 Configuraciones iniciales:</h3>
+<h4 id="mostrar-comandos">Mostrar comandos:</h4>
+<p>Este comando incialmente se ejecutará para mostrar los comandos por si surgiera algún error con alguno:</p>
+<pre><code>set -x
+</code></pre>
+<h4 id="actualizacion-de-paquetes-y-repositorios">Actualización de paquetes y repositorios:</h4>
+<p>Con el siguiente comando podemos realizar la actualización de la lista de paquetes:</p>
+<pre><code>apt update
+</code></pre>
+<p>Por el contrario este otro trae nuevas versiones a los paquetes ya instalados:</p>
+<pre><code>apt upgrade
+</code></pre>
+<h2 id="2-implantacion-de-la-pila">2. Implantación de la pila:</h2>
+<h3 id="21-instalacion-de-apache">2.1 Instalación de APACHE:</h3>
+<p>Empleando este comando pasaré con la instalación de apache, y el parámetro <strong>-y</strong> es para que no salga la pregunta de confirmación:</p>
+<pre><code>apt install apache2 -y
+</code></pre>
+<h3 id="22-instalacion-de-mysql">2.2 Instalación de MySQL:</h3>
+<p>Empleando este comando pasaré con la instalación de MySQL, y el parámetro <strong>-y</strong> es para que no salga la pregunta de confirmación:</p>
+<pre><code>apt install mysql-server -y
+</code></pre>
+<h3 id="23-instalacion-de-php">2.3 Instalación de PHP:</h3>
+<p>Empleando este comando pasaré con la instalación de PHP, junto a 2 módulos <strong>libapache2-mod-php</strong> para el servidor web de apache y <strong>php-mysql</strong> que enlaza php junto a mysql,  y el parámetro <strong>-y</strong> es para que no salga la pregunta de confirmación:</p>
+<pre><code>apt install php libapache2-mod-php php-mysql -y
+</code></pre>
+<h3 id="24-archivo-de-configuracion-de-apache">2.4 Archivo de configuración de apache:</h3>
+<p>En esta parte de aquí bajo la carpeta <em>conf</em>, podemos tener creado un archivo <strong>000-default.conf</strong> donde tengamos implementada la configuración del VirtualHost del servidor web:</p>
+<p><img alt="" src="{{ site.url }}/images/conf.png" /></p>
+<p>y en nuestro script de automatización podemos emplear el comando <strong>cp</strong> para copiar hacia la ruta donde apache tiene los servidores webs <strong>no activos</strong>, automatizando de este modo la tarea:</p>
+<pre><code>cp ../conf/000-default.conf /etc/apache2/sites-available 
+</code></pre>
+<p>tras ello podemos realizar un reinicio del servicio:</p>
+<pre><code>systemctl restart apache2
+</code></pre>
+<h3 id="25-modificacion-de-grupo-y-propietario">2.5 Modificación de grupo y propietario:</h3>
+<p>Como incialemente puede estar perteneciendo a <strong>root</strong>, de la ruta <strong>/var/www/html</strong>, (que es la carpeta predeterminada raíz para el servidor web donde se alojan las páginas) cambiamos al <strong>propietario</strong> y <strong>grupo</strong> al de apache con el siguiente comando:</p>
+<pre><code>chown -R www-data:www-data /var/www/html
+</code></pre>
+<h2 id="3-configuracion-de-las-tools">3. Configuración de las tools:</h2>
+<h3 id="31-como-podriamos-automatizar-la-instalacion-de-phpmyadmin-desde-un-script-de-bash">3.1 ¿Cómo podríamos automatizar la instalación de phpmyadmin desde un script de Bash?</h3>
+<p>Para no tener que estar seleccionando de forma manual las opciones al  podemos emplear ciertos comandos dentro del script <strong>installtools.sh</strong> para ello se emplea lo siguiente:</p>
+<p>El siguiente comando le dice que seleccione <strong>apache</strong> en la elección del servidor web, para ello se hace uso de  <strong>debconf-set-selections</strong> para automatizar nuestra respuesta.</p>
+<pre><code>echo &quot;phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2&quot; | debconf-set-selections
+</code></pre>
+<p>El siguiente comando automatiza el valor booleano de elección, en este caso true para utilizar <strong>dbconfig-common</strong> para configurar la base de datos de phpmyadmin:</p>
+<pre><code>echo &quot;phpmyadmin phpmyadmin/dbconfig-install boolean true&quot; | debconf-set-selections
+</code></pre>
+<h3 id="32-configuracion-automatizada-de-las-credenciales-de-phpmyadmin">3.2 Configuración automatizada de las credenciales de phpmyadmin</h3>
+<p>Para no tener que estar introduciendo nuestro usuario y contraseña durante la propia instalación, podemos meter dentro de nuestra carpeta de <em>Scripts</em> un archivo <strong>.env</strong> (que permanece oculto), donde asignemos las variables para el <strong>usuario</strong> y <strong>contraseña</strong>, y las <strong>credenciales</strong> para acceder <strong>via web</strong> al phpmyadmin:</p>
+<p><img alt="" src="{{ site.url }}/images/.env.png" /></p>
+<p><img alt="" src="{{ site.url }}/images/credenciales.png" /></p>
+<p>y desde el propio script llamaremos a las variables usando la herramienta <strong>debconf-set-selections</strong> para automatizar la respuesta de introducción y confirmación de la contraseña:</p>
+<pre><code>echo &quot;phpmyadmin phpmyadmin/mysql/app-pass password $PHPMYADMIN_APP_PASSWORD&quot; | debconf-set-selections
+</code></pre>
+<pre><code>echo &quot;phpmyadmin phpmyadmin/app-password-confirm password $PHPMYADMIN_APP_PASSWORD&quot; | debconf-set-selections
+</code></pre>
+<h3 id="33-instalacion-de-phpmyadmin">3.3 Instalación de phpmyadmin</h3>
+<p>Una vez hecha la configuración previa se puede pasar con la instalación ya automatizada de phpmyadmin junto a ciertos componentes:</p>
+<pre><code>apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl
+</code></pre>
+<h3 id="34-configuracion-de-acceso-automatizado-de-usuario-a-las-bases-de-datos">3.4 Configuración de acceso automatizado de usuario a las bases de datos</h3>
+<p>En estaa parte de aquí llamaremos a la <strong>variable</strong> perteneciente al <strong>usuario</strong> del archivo <strong>.env</strong>
+para crear de forma automatizada uno que tenga acceso a todas las tablas de todas las bases de datos.</p>
+<p>Este primer comando redirige la orden de borrar el usuario de nuestra variable en caso de que exista para que no de conflicto cada vez que se ejecuta el script:</p>
+<pre><code>mysql -u root &lt;&lt;&lt; &quot;DROP USER IF EXISTS '$APP_USER'@'%'&quot;
+</code></pre>
+<p>Luego se realiza la creación del usuario, pudiendo conectarse de forma remota, identificandolo con su contraseña:</p>
+<pre><code>mysql -u root &lt;&lt;&lt; &quot;CREATE USER '$APP_USER'@'%' IDENTIFIED BY '$APP_PASSWD';&quot;
+</code></pre>
+<p>Luego se le otorga al usuario todos los permisos a todas las tablas de todas las bases de datos:</p>
+<pre><code>mysql -u root &lt;&lt;&lt;  &quot;GRANT ALL PRIVILEGES ON *.* TO '$APP_USER'@'%'&quot;;
+</code></pre>
+<h3 id="34-instalacion-de-adminer">3.4 Instalación de ADMINER</h3>
+<p>En esta parte se implementa Adminer como alternativa al phpmyadmin para acceder al mysql, lo que se hará primeramente es crear su directorio en la ruta <strong>/var/www/html</strong></p>
+<p>Con el parámetro <strong>-p</strong>  indica que cree el directorio en caso de que no existe, pero si existe no ocurre ningún error:</p>
+<pre><code>mkdir -p /var/www/html/adminer
+</code></pre>
+<p>Luego podemos descargar el archivo de Adminer sobre la ruta indicada:</p>
+<pre><code>wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql.php -P /var/www/html/adminer
+</code></pre>
+<p>Podemos pasar renombrar el archivo <strong>.php</strong> que arroja:</p>
+<pre><code>mv /var/www/html/adminer/adminer-4.8.1-mysql.php /var/www/html/adminer/index.php
+</code></pre>
+<p>Seguidamente se pasa a cambiar el <strong>propietario</strong> y <strong>grupo</strong> para el <strong>usuario de apache</strong>:</p>
+<pre><code>chown -R www-data:www-data /var/www/html
+</code></pre>
+<h3 id="35-instalacion-y-configuracion-de-goacess">3.5 Instalación y configuración de GoAcess</h3>
+<p>Con el siguiente comando se procede con la instalación:</p>
+<pre><code>apt install goaccess -y
+</code></pre>
+<p>Creamos un directorio para los informes html GoAccess:</p>
+<pre><code>mkdir -p /var/www/html/stats
+</code></pre>
+<p>Para generar un archivo index.html en la ruta <strong>/var/www/html/stats/</strong> con la <strong>información de log</strong> en <strong>tiempo real</strong> podemos usar el siguiente comando, agregando <strong>--real-time-html</strong> ya que de lo contrario solo genera archivos html estáticos de un momento determinado, la opción <strong>--daemonize</strong> lo crea en segundo plano para liberar a la terminal:</p>
+<pre><code>goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --daemonize
+</code></pre>
+<p><strong><em>NOTA</em></strong>:
+<code>Para que genere los archivos html en tiempo real hay que abrir el puerto 7890.</code></p>
+<h3 id="36-autenticacion-de-goacess">3.6 Autenticación de GoAcess</h3>
+<p>Mediante el siguiente comando se realiza la creación del archivo <strong>.htpasswd</strong> donde se guarda la <strong>contraseña cifrada del usuario</strong> para el <strong>usuario</strong> que se le indica mediante la llamada de la variable, asi como la llamada a la variable de la <strong>contraseña</strong> para autenticarte en el directorio.</p>
+<p>Podemos meter dichas variables en el archivo <strong>.env</strong> del directorio de <em>Scripts</em></p>
+<p><img alt="" src="{{ site.url }}/images/statsvar.png" /></p>
+<p>el parámetro <strong>-b</strong> permite utilizar el comando en un script de bash</p>
+<pre><code>htpasswd -bc /etc/apache2/.htpasswd $STATS_USERNAME $STATS_PASSWORD`
+</code></pre>
+<p>Seguidamente, el directorio <em>.conf</em> podemos  crear un segundo archivo de configuración para el stats</p>
+<p><img alt="" src="{{ site.url }}/images/confstats.png" /></p>
+<p>Y mediante este comando de forma automatizada podemos estar copiando con un nombre distinto nuestro archivo de configuración con el nombre <strong>000-default.conf</strong> para que lo detecte apache con el nombre por defecto que tiene ese archivo:</p>
+<p>Internamente el archivo está puesto de esta forma:</p>
+<p><img alt="" src="{{ site.url }}/images/vhost_stast.png" /></p>
+<pre><code>cp ../conf/000-default-stats.conf /etc/apache2/sites-available/000-default.conf
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
