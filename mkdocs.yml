@@ -1,13 +1,19 @@
-site_name: IAW
+site_name: Samuel_mkdocs
 
 nav:
-    - Principal: index.md
-    - Acerca de: about.md
+    - Practica LAMP en ubuntu: LAMP_ubuntu.md
+    - Practica LAMP en RHEL: LAMP_rhel.md
+
 
 theme: 
   name: material
   palette:
-    accent: indigo
+    primary: purple
+    accent: pink
+  logo: images/S.png
+  font: 
+   text: Fredoka
+   code: Fredoka
 
 
   
