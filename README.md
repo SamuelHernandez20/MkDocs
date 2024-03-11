@@ -6,10 +6,11 @@ La estructura de directorios que sigo para esta práctica es así:
 
 ````
 .
-└── proyecto
-    ├── docs
-    │   ├── about.md
-    │   └── index.md
-    └── mkdocs.yml
+└── -github/workflows
+└──docs
+    │   ├── images
+    │   ├── LAMP_RHEL.md
+    │   └── LAMP_UBUNTU.md
+└── mkdocs.yml
 
 ``````
