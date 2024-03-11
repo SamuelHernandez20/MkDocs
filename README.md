@@ -57,3 +57,11 @@ Una vez que hemos creado la estructura del proyecto podemos empezar el desarroll
 ```
 docker run --rm -it -p 8000:8000 -v "$PWD":/docs squidfunk/mkdocs-material
 ```
+
+## 3. Generar la documentación (Comando: build):
+
+En este caso como tenemos ya configurado el **Workflow** no hace falta que hagamos uso del siguiente comando para realizar la construcción, ya que lo hace por nosotros de manera automartizada su creación, pero en caso contrario el comando sería el siguiente:
+
+```
+docker run --rm -it -v "$PWD":/docs squidfunk/mkdocs-material build
+```
