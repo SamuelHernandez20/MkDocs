@@ -26,4 +26,21 @@ docker run --rm -it -p 8000:8000 -v "$PWD":/docs squidfunk/mkdocs-material new .
 
 Una vez realizada la creación de este nuevo proyecto, en el directorio de este, podemos realizar la creación de nuestro archivo **YAML**, para así poder crear la estructura básica que tendrá el sitio tras ser publicado:
 
+```
+site_name: Samuel_mkdocs
 
+nav:
+    - Practica LAMP en RHEL: LAMP_RHEL.md
+    - Practica LAMP en UBUNTU: LAMP_UBUNTU.md
+
+
+theme: 
+  name: material
+  palette:
+    primary: purple
+    accent: pink
+  logo: images/S.png
+  font: 
+   text: Fredoka
+   code: Fredoka
+```
