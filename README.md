@@ -33,7 +33,6 @@ nav:
     - Practica LAMP en RHEL: LAMP_RHEL.md
     - Practica LAMP en UBUNTU: LAMP_UBUNTU.md
 
-
 theme: 
   name: material
   palette:
