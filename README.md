@@ -7,7 +7,7 @@ La estructura de directorios que sigo para esta práctica es así:
 ``
 .
 ├── .github
-│   └── workflows
+└── workflows
 │   │   └── build-push-mkdocs.yaml
 └── proyecto
     ├── docs
