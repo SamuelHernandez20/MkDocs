@@ -4,13 +4,4 @@ El contenido del sitio web está escrito en texto plano en formato Markdown y se
 
 La estructura de directorios que sigo para esta práctica es así:
 
-``
-.
-├── .github
-└── workflows
-│   │   └── build-push-mkdocs.yaml
-└── proyecto
-    ├── docs
-    │   └── index.md
-    └── mkdocs.yml
-``
+
