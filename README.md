@@ -43,3 +43,17 @@ theme:
    text: Fredoka
    code: Fredoka
 ```
+Donde en este código, `nav` hace referencia a 2 archivos .md con contenido escrito en markdown, las cuales constituyen a 2 publicaciones sobre 2 de mis prácticas:
+
+```
+nav:
+    - Practica LAMP en RHEL: LAMP_RHEL.md
+    - Practica LAMP en UBUNTU: LAMP_UBUNTU.md
+```
+## 2. Creación del servidor de desarrollo:
+
+Una vez que hemos creado la estructura del proyecto podemos empezar el desarrollo de nuestro sitio iniciando un contenedor Docker con **MkDocs** y el theme **Material**, y de este modo se podrá acceder a través del navegador:
+
+```
+docker run --rm -it -p 8000:8000 -v "$PWD":/docs squidfunk/mkdocs-material
+```
